@@ -10,6 +10,7 @@ footer: "ECL 2.0 Licensed | Copyright © 2024 Kochenkov Max"
 **Виконав(-ла):** 
 
 *студенти 2-го курсу, групи ІО-21*<span padding-right:5em></span> 
+
 **Коченков Максим [mkochenkov@gmail.com, @whyhatemek]**
 
 **Безщасний Роман [bezshchasnyiroman7a76@gmail.com, @Var_Roman]**
