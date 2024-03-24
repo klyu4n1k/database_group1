@@ -23,6 +23,7 @@ footer: "ECL 2.0 Licensed | Copyright © 2024 Kochenkov Max"
 
 **Мельник Олег [mo091294mo@gmail.com, @olehmeln10]**
 
+**Ключник Михайло [klyuchnikms@gmail.com, @mdxees]**
 
 **Керівник**
 
