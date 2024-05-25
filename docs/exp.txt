@@ -1,6 +1,3 @@
-# Реалізація інформаційного та програмного забезпечення
-
-```SQL
 CREATE DATABASE mydb; 
 USE mydb;
 CREATE TABLE Role (
@@ -83,4 +80,3 @@ CREATE TABLE Action (
     FOREIGN KEY (Role_id) REFERENCES Role(id),
     FOREIGN KEY (State_id) REFERENCES State(id)
 );
-```
