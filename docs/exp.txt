@@ -1,0 +1,82 @@
+CREATE DATABASE mydb; 
+USE mydb;
+CREATE TABLE Role (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE Permission (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE User (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    nick_name VARCHAR(45),
+    email VARCHAR(128) NOT NULL,
+    password VARCHAR(64) NOT NULL,
+    Role_id INT,
+    FOREIGN KEY (Role_id) REFERENCES Role(id)
+);
+
+CREATE TABLE `Grant` (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    appoin_td DATE NOT NULL,
+    Role_id INT,
+    Permission_id INT,
+    FOREIGN KEY (Role_id) REFERENCES Role(id),
+    FOREIGN KEY (Permission_id) REFERENCES Permission(id)
+);
+
+CREATE TABLE Survey (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(45) NOT NULL,
+    description LONGTEXT,
+    created DATE NOT NULL,
+    User_id INT,
+    User_Role_id INT,
+    FOREIGN KEY (User_id) REFERENCES User(id)
+);
+
+CREATE TABLE Question (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    text LONGTEXT NOT NULL,
+    type VARCHAR(32) NOT NULL,
+    Survey_id INT,
+    Survey_User_id INT,
+    Survey_User_Role_id INT,
+    FOREIGN KEY (Survey_id) REFERENCES Survey(id)
+);
+
+CREATE TABLE Answer (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    text LONGTEXT NOT NULL,
+    User_id INT,
+    User_Role_id INT,
+    Question_id INT,
+    Question_Survey_id INT,
+    Question_Survey_User_id INT,
+    Question_Survey_User_Role_id INT,
+    FOREIGN KEY (User_id) REFERENCES User(id),
+    FOREIGN KEY (Question_id) REFERENCES Question(id)
+);
+
+CREATE TABLE State (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE Action (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date DATE NOT NULL,
+    Survey_id INT,
+    Survey_User_id INT,
+    Survey_User_Role_id INT,
+    Role_id INT,
+    State_id INT,
+    FOREIGN KEY (Survey_id) REFERENCES Survey(id),
+    FOREIGN KEY (Role_id) REFERENCES Role(id),
+    FOREIGN KEY (State_id) REFERENCES State(id)
+);
